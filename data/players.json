@@ -1,0 +1,74 @@
+[
+  {
+    "name": "LeBron James",
+    "team": "Los Angeles Lakers",
+    "position": "SF",
+    "overall": 94
+  },
+  {
+    "name": "Stephen Curry",
+    "team": "Golden State Warriors",
+    "position": "PG",
+    "overall": 95
+  },
+  {
+    "name": "Jayson Tatum",
+    "team": "Boston Celtics",
+    "position": "SF",
+    "overall": 95
+  },
+  {
+    "name": "Luka Doncic",
+    "team": "Dallas Mavericks",
+    "position": "PG",
+    "overall": 97
+  },
+  {
+    "name": "Anthony Edwards",
+    "team": "Minnesota Timberwolves",
+    "position": "SG",
+    "overall": 93
+  },
+  {
+    "name": "Jalen Brunson",
+    "team": "New York Knicks",
+    "position": "PG",
+    "overall": 93
+  },
+  {
+    "name": "Bam Adebayo",
+    "team": "Miami Heat",
+    "position": "C",
+    "overall": 88
+  },
+  {
+    "name": "Rudy Gobert",
+    "team": "Minnesota Timberwolves",
+    "position": "C",
+    "overall": 87
+  },
+  {
+    "name": "Pascal Siakam",
+    "team": "Indiana Pacers",
+    "position": "PF",
+    "overall": 88
+  },
+  {
+    "name": "Jrue Holiday",
+    "team": "Boston Celtics",
+    "position": "PG",
+    "overall": 86
+  },
+  {
+    "name": "Klay Thompson",
+    "team": "Dallas Mavericks",
+    "position": "SG",
+    "overall": 82
+  },
+  {
+    "name": "Myles Turner",
+    "team": "Indiana Pacers",
+    "position": "C",
+    "overall": 84
+  }
+]
