@@ -13,3 +13,19 @@ def filter_players_by_overall(
             filtered_players.append(player)
 
     return filtered_players
+
+
+def filter_players_by_position(
+    players: list[dict],
+    positions: list[str]
+) -> list[dict]:
+    """
+    Filters players by position.
+    """
+    filtered_players = []
+
+    for player in players:
+        if player["position"] in positions:
+            filtered_players.append(player)
+
+    return filtered_players
