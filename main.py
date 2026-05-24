@@ -39,7 +39,7 @@ def get_overall_filter() -> tuple[int, int]:
 
 
 def main() -> None:
-    players = load_players()
+    players = load_players("data/players.json")
 
     users = get_user_names()
     team_size = get_team_size()
