@@ -1,7 +1,8 @@
 from src.data_loader import load_players
-from src.filters import filter_players_by_overall
+from src.filters import filter_players_by_overall, filter_players_by_position
 from src.randomizer import create_random_rosters
 from src.display import display_rosters
+
 
 
 def get_user_names() -> list[str]:
@@ -29,9 +30,7 @@ def get_team_size() -> int:
 
 
 def get_overall_filter() -> tuple[int, int]:
-    """
-    Asks for the minimum and maximum overall rating.
-    """
+    """Asks for the minimum and maximum overall rating."""
     min_overall = int(input("Enter minimum player overall: "))
     max_overall = int(input("Enter maximum player overall: "))
 
@@ -44,12 +43,19 @@ def main() -> None:
     users = get_user_names()
     team_size = get_team_size()
     min_overall, max_overall = get_overall_filter()
+    positions = ["PG", "SG", "SF", "PF", "C"]
 
     filtered_players = filter_players_by_overall(
         players,
         min_overall,
         max_overall
     )
+
+    filtered_players = filter_players_by_position(
+        filtered_players,
+        positions
+    )
+    
 
     rosters = create_random_rosters(
         users,
