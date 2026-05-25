@@ -10,22 +10,39 @@ def calculate_average_overall(roster: list[dict]) -> float:
     return total_overall / len(roster)
 
 
-def display_rosters(rosters: dict[str, list[dict]]) -> None:
+def display_player(player: dict) -> None:
     """
-    Displays generated rosters in the terminal.
+    Displays one player.
+    """
+    print(
+        f"{player['position']} - {player['name']} | "
+        f"{player['team']} | {player['overall']} OVR"
+    )
+
+
+def display_rosters(rosters: dict[str, dict[str, list[dict]]]) -> None:
+    """
+    Displays each user's roster with starters and bench separated.
     """
     print("\nGenerated NBA 2K Rosters")
     print("=" * 40)
 
-    for user, roster in rosters.items():
-        average_overall = calculate_average_overall(roster)
+    for user, roster_sections in rosters.items():
+        starters = roster_sections["starters"]
+        bench = roster_sections["bench"]
+        full_roster = starters + bench
+
+        average_overall = calculate_average_overall(full_roster)
 
         print(f"\n{user}'s Team")
         print(f"Average Overall: {average_overall:.1f}")
         print("-" * 30)
 
-        for player in roster:
-            print(
-                f"{player['name']} | {player['position']} | "
-                f"{player['team']} | {player['overall']} OVR"
-            )
+        print("Starters")
+        for player in starters:
+            display_player(player)
+
+        if bench:
+            print("\nBench")
+            for player in bench:
+                display_player(player)
