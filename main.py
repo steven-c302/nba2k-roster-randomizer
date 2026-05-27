@@ -7,17 +7,23 @@ from src.display import display_rosters
 
 def get_user_names() -> list[str]:
     """Asks for the users/friends who need generated teams."""
-    names_input = input("Enter user names separated by commas: ")
+    while True:
+        names_input = input("Enter user names separated by commas: ")
 
-    users = []
+        users = []
 
-    for name in names_input.split(","):
-        cleaned_name = name.strip()
+        for name in names_input.split(","):
+            cleaned_name = name.strip()
 
-        if cleaned_name:
-            users.append(cleaned_name)
+            if cleaned_name:
+                users.append(cleaned_name)
 
-    return users
+        if len(users) == 0:
+            print("Please enter at least one user.")
+        else:
+            return users
+
+
 
 
 def get_team_size() -> int:
@@ -62,7 +68,7 @@ def main() -> None:
         min_overall,
         max_overall
     )
-
+    
     rosters = create_rosters_with_starters(
         users,
         filtered_players,
