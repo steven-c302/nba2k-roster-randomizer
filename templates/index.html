@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA 2K Roster Randomizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>NBA 2K Roster Randomizer</h1>
+        <p class="subtitle">Generate random teams for you and your friends</p>
+
+        {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form action="/generate" method="POST">
+            <div class="form-group">
+                <label for="users">Player Names</label>
+                <input
+                    type="text"
+                    id="users"
+                    name="users"
+                    placeholder="e.g. Steve, Jordan, Mike"
+                    required
+                >
+                <span class="hint">Separate names with commas</span>
+            </div>
+
+            <div class="form-group">
+                <label for="team_size">Team Size</label>
+                <input
+                    type="number"
+                    id="team_size"
+                    name="team_size"
+                    min="5"
+                    max="15"
+                    value="8"
+                    required
+                >
+                <span class="hint">Between 5 and 15 players per team</span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="min_overall">Min Overall</label>
+                    <input
+                        type="number"
+                        id="min_overall"
+                        name="min_overall"
+                        min="0"
+                        max="99"
+                        value="75"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="max_overall">Max Overall</label>
+                    <input
+                        type="number"
+                        id="max_overall"
+                        name="max_overall"
+                        min="0"
+                        max="99"
+                        value="99"
+                        required
+                    >
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Generate Rosters</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Rosters – NBA 2K Roster Randomizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Generated Rosters</h1>
+
+        <div class="rosters">
+            {% for user, sections in rosters.items() %}
+            <div class="team-card">
+                <div class="team-header">
+                    <h2>{{ user }}'s Team</h2>
+                    <span class="avg-ovr">Avg OVR: {{ averages[user] }}</span>
+                </div>
+
+                <div class="roster-section">
+                    <h3>Starters</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>POS</th>
+                                <th>Name</th>
+                                <th>Team</th>
+                                <th>OVR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for player in sections["starters"] %}
+                            <tr>
+                                <td class="pos">{{ player["position"] }}</td>
+                                <td>{{ player["name"] }}</td>
+                                <td class="team">{{ player["team"] }}</td>
+                                <td class="ovr">{{ player["overall"] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                {% if sections["bench"] %}
+                <div class="roster-section bench">
+                    <h3>Bench</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>POS</th>
+                                <th>Name</th>
+                                <th>Team</th>
+                                <th>OVR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for player in sections["bench"] %}
+                            <tr>
+                                <td class="pos">{{ player["position"] }}</td>
+                                <td>{{ player["name"] }}</td>
+                                <td class="team">{{ player["team"] }}</td>
+                                <td class="ovr">{{ player["overall"] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="/" class="btn">Generate Again</a>
+    </div>
+</body>
+</html>
